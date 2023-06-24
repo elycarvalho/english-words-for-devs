@@ -34,6 +34,11 @@ const words = [
     {word:"debbuger",translation: "programa de computador que auxilia na depuração e detecção de erros em códigos"},
     {word:"decrement",translation: "diminuir, decrescer"},
     {word:"default",translation: "padrão"},
+    {word:"deploy",translation: "implantar"},
+    {word:"deployment",translation: "implantação, desenvolvimento"},
+    {word:"dev",translation: "abreviatura de 'developer' (desenvolvedor de software)"},
+    {word:"developer",translation: "Desenvolvedor. Usado frequentemente para se referir a desenvolvedor de softwares"},
+    {word:"developement",translation: "desenvolvimento. Usado frequentemente para se referir a desenvolvimento de softwares"},
     {word:"display",translation: "mostrar, exibir, mostrador"},
     {word:"drop",translation: "derrubar, soltar, largar, cair, gota, gotejar"},
     {word:"each",translation: "cada"},
@@ -54,6 +59,7 @@ const words = [
     {word:"garbage",translation: "lixo, resto, refugo, sobras, escombros"},
     {word:"get",translation: "obter, adquirir, arranjar"},
     {word:"greater than",translation: "maior que ( > )"},
+    {word:"grid",translation: "grade"},
     {word:"head",translation: "cabeça, parte superior"},
     {word:"header",translation: "cabeçalho"},
     {word:"height",translation: "altura"},
@@ -74,12 +80,18 @@ const words = [
     {word:"markup",translation: "marcação"},
     {word:"match",translation: "combinar, corresponder, igualar, partida"},
     {word:"odd",translation: "impar, chance"},
+    {word:"oop",translation: "É a abreviação de 'Object-oriented Programming'(Programação orientada a objeto). é um modelo de programação que organiza o design de software em torno de dados ou objetos, em vez de funções e lógica."},
     {word:"outer",translation: "exterior, parte de fora"}, 
+    {word:"overflow",translation: "transbordo, transbordar"},
     {word:"override",translation: "sobrepor, sobrescrever, passar por cima de"},
     {word:"package",translation: "pacote"},
     {word:"parse",translation: "analisar"},
     {word:"path",translation: "caminho, trajeto"},
     {word:"procedure",translation: "procedimento"},
+    {
+      word:"prototype",
+      translation:"Protótipo. É um estilo de programação orientada a objetos no qual as classes não são explicitamente definidas, mas sim derivadas adicionando propriedades e métodos a uma instância de outra classe ou, com menos frequência, adicionando-os a um objeto vazio."
+    },
     {word:"push",translation: "empurrar"},
     {word:"query",translation: "consultar, indagar"},
     {word:"queue",translation: "fila, enfileirado"},
@@ -103,6 +115,7 @@ const words = [
     {word:"span",translation: "vão"},
     {word:"splice",translation: "unir, emendar, juntar, ligar"},
     {word:"split",translation: "dividir, rachar, partir"},
+    {word:"stack",translation: "Pilha de objetos. Um conceito lógico que consiste em um conjunto de elementos semelhantes. O termo é frequentemente usado em programação e organização de memória em computadores."},
     {word:"storage",translation: "armazenamento"},
     {word:"string",translation: "fio, cordão, barbante"},
     {word:"sum",translation: "soma, somar"},
@@ -125,7 +138,7 @@ const words = [
     {word:"write",translation: "escrever"},
     {word:"yield",translation: "colheita, rendimento, produto"}
 ]
-console.log(words.length)
+console.log('palavras:' + words.length)
 
 let typedWord = document.querySelector('#typed-word')
    
@@ -140,22 +153,33 @@ function showList(){
 showList()
 
 //ao clicar no botão pesquisar procura por uma palavra no array e mostra abaixo dos botões
-btnSearch.addEventListener('click', searchWord())
+btnSearch.addEventListener('click', ()=>{
+    if(typedWord.value === ''){alert("Digite uma palavra ou trecho para pesquisar.")}
+    if(foundWords === 0){alert('Palavra não encontrada!')}
+    searchWord()
+})
 
 typedWord.addEventListener('keyup', ()=>{
     searchWord()
 })
 
+let foundWords = 0
 function searchWord(){
     const foundWord = document.querySelector('#found-word')
+    const typedWordLower = typedWord.value.toLowerCase()
+    console.log('digitada' + typedWordLower)
     foundWord.innerHTML = ''
     for(let i = 0; i < words.length; i++){
         let wordSlice = words[i].word.slice(0, typedWord.value.length)
-        if(typedWord.value === wordSlice){
+        if(typedWordLower === wordSlice){
+            foundWords++
             foundWord.innerHTML += `
                 <h5 class='ml-1'>${words[i].word} :</h5> <p class='ml-1'>${words[i].translation}</p>
                 <hr>
             `
         }
+        
     }     
+    console.log('encontradas:'+ foundWords)
+    
 }
