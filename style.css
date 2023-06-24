@@ -1,0 +1,14 @@
+li{
+    list-style-type: none;
+}
+
+#found-word{
+    width: 100%;
+    height: 170px;
+    overflow: scroll;
+}
+
+#list{
+    height: 550px;
+    overflow-y: scroll;
+}
