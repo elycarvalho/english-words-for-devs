@@ -95,6 +95,7 @@ const words = [
     {word:"main",translation: "principal"},
     {word:"markup",translation:"marcação"},
     {word:"match",translation:"combinar, corresponder, igualar, partida"},
+    {word:"null",translation:"nulo, sem efeito. Na programação pode indicar que um valor é zero ou que não tem nenhum valor."},
     {word:"odd",translation:"impar, chance, esquisito. Exemplos: What are the odds? (quais são as chances), 'odds or evens?'(impar ou par?)"},
     {word:"oop",translation:"É a abreviação de 'Object-oriented Programming'(Programação orientada a objeto). é um modelo de programação que organiza o design de software em torno de dados ou objetos, em vez de funções e lógica."},
     {word:"outer",translation:"exterior, parte de fora"}, 
