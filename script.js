@@ -1,5 +1,6 @@
 const list = document.querySelector('#list')
 const btnSearch = document.querySelector('#btn-search')
+const foundNumber = document.querySelector('#found-number')
 
 const words = [
     {word:"add",translation:"adicionar, acrescentar, incluir"},
@@ -9,7 +10,7 @@ const words = [
     {
       word:"api",
       translation:"É a abreviação de 'application programming interface'(Interface de programação de aplicativos). é um software intermediário que permite que dois aplicativos conversem entre si."},
-    {word:"append",translation:"acrescentar, anexar"},
+    {word:"append",translation:"acrescentar, anexar, incluir"},
     {word:"apply",translation:"aplicar, solicitar, requerer"},
     {word:"around",translation:"ao redor de, em volta de"},
     {
@@ -22,6 +23,7 @@ const words = [
     {word:"backslash",translation:"barra invertida ( \ )"},
     {word:"between",translation:"entre"},
     {word:"body",translation:"corpo"},
+    {word:"boolean",translation:"em programação, boolean é uma variável que pode ter dois valores possíveis, chamados de 'true' e 'false' (verdadeiro e falso)"},
     {word:"border",translation:"borda, fronteira, beira"},
     {word:"brackets",translation:"colchetes"},
     {word:"break",translation:"quebrar, romper, pausa"},
@@ -30,7 +32,8 @@ const words = [
     {word:"callable",translation:"exigível, que pode ser chamado. Um objeto que pode ser chamado como uma função"},
     {word:"callback",translation:"chamar de volta. Uma função passada como argumento para outra função"},
     {word:"case",translation:"caso, causa, estojo, cápsula"},
-    {word:"catch",translation:"pegar, capturar, apanhar, agarrar"}, 
+    {word:"catch",translation:"pegar, capturar, apanhar, agarrar"},
+    {word:"ceil",translation:"teto. Arredonda um numero para o inteiro maior."},
     {word:"clear",translation:"claro, limpo, limpar, clarear"},
     {word:"count",translation:"contar, contagem"},
     {word:"create",translation:"criar"},
@@ -57,12 +60,14 @@ const words = [
     {word:"even",translation: "mesmo, ainda, até, par"},
     {word:"evenly",translation: "uniformente"},
     {word:"fetch",translation: "buscar, trazer"},
+    {word:"fill",translation:"preencher, ocupar, completar, encher"},
     {word:"find",translation: "encontrar, achar, buscar"},
     {word:"flat",translation: "achatar, achatado, liso, plano"},
     {word:"float",translation: "flutuar, boiar, pairar"},
     {word:"floor",translation: "piso, chão, fundo, solo, andar de prédio"},
     {word:"for",translation: "para, por, durante, enquanto"},
     {word:"footer",translation: "rodapé"},
+    {word:"framework", translation:"armação, estrutura de sustentação de construções, veículos ou objetos. Em desenvolvimento de software, é uma estrutura de códigos predefinidos, que podem ser usados em vários projetos diferentes, agilizando a produção de softwares."}, 
     {word:"full",translation: "cheio, completo"},
     {word:"garbage",translation: "lixo, resto, refugo, sobras, escombros"},
     {word:"get",translation: "obter, adquirir, arranjar"},
@@ -78,11 +83,13 @@ const words = [
     {word:"inner",translation: "interior, parte interna"},
     {word:"insert",translation: "inserir"},
     {word:"integer",translation: "inteiro"},
+    {word:"iteration",translation:"repetição"},
     {word:"join",translation: "juntar, unir, ligar"},
     {word:"key",translation: "chave, tecla, botão"},
     {word:"keyword",translation: "palavra chave"},
     {word:"left",translation:"esquerda, deixado"},
     {word:"length",translation: "comprimento, extensão, duração"},
+    {word:"library", translation:"biblioteca. Na programação é um coleção de códigos pré escrito que programadores podem usar para optimizar tarefas específicas."},
     {word:"listen",translation: "escutar"},
     {word:"load",translation: "carregamento, carga, carregar"},
     {word:"main",translation: "principal"},
@@ -97,6 +104,7 @@ const words = [
     {word:"parent", translation:"o pai ou a mãe"},
     {word:"parse",translation:"analisar"},
     {word:"path",translation:"caminho, trajeto"},
+    {word:"print",translation:"imprimir ou mostrar na tela"},
     {word:"procedure",translation:"procedimento"},
     {
       word:"prototype",
@@ -113,13 +121,15 @@ const words = [
     {word:"require",translation: "requerer, requisitar, pedir"},
     {word:"right",translation:"direito, lado direito, certo, correto"},
     {word:"row",translation: "linha, fila"},
-    {word:"run",translation: "correr, executar um código de programação"},
-    {word:"servlet",translation: "um pequeno programa residente no servidor que normalmente é executado automaticamente em resposta à entrada do usuário."},
-    {word:"set",translation: "definir"},
-    {word:"shift",translation: "mudar, trocar"},
-    {word:"sign",translation: "sinal, sinalizar"},
-    {word:"size",translation: "tamanho, dimensão, definir tamanho"},
-    {word:"slash",translation: "barra ( / )"},
+    {word:"run",translation:"correr, executar um código de programação"},
+    {word:"select",translation:"selecionar"},
+    {word:"selector",translation:"seletor, selecionador, aquele que seleciona"},
+    {word:"servlet",translation:"um pequeno programa residente no servidor que normalmente é executado automaticamente em resposta à entrada do usuário."},
+    {word:"set",translation:"definir"},
+    {word:"shift",translation:"mudar, trocar"},
+    {word:"sign",translation:"sinal, sinalizar"},
+    {word:"size",translation:"tamanho, dimensão, definir tamanho"},
+    {word:"slash",translation:"barra ( / )"},
     {word:"slice",translation: "fatiar"},
     {word:"sort",translation: "organizar, ordenar, tipo, espécie"},
     {word:"source",translation: "fonte, origem"},
@@ -133,11 +143,13 @@ const words = [
     {word:"sum",translation: "soma, somar"},
     {word:"switch",translation: "trocar, mudar, interruptor, disjuntor, chave"},
     {word:"target", translation: "alvo"},
+    {word:"task",translation:"tarefa"},
     {word:"then",translation: "então, depois, em seguida"},
     {word:"throw",translation: "lançar, jogar, atirar, arremessar, soltar"},
     {word:"title",translation: "título"},
     {word:"trait",translation: "característica"},
     {word:"trim",translation: "aparar, recortar"},
+    {word:"true",translation:"verdadeiro"},
     {word:"try",translation: "tentar, provar, experimentar"},
     {word:"unset",translation: "desarmar, desmontar, desativar"},
     {word:"up",translation: "para cima, acima, subir, levantar"},
@@ -191,7 +203,8 @@ function searchWord(){
             `
         }
         
-    }     
+    }   
+    foundNumber.innerHTML = foundWords  
     console.log('encontradas:'+ foundWords)
     
 }

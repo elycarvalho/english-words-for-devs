@@ -4,11 +4,19 @@ li{
 
 #found-word{
     width: 100%;
-    height: 280px;
+    height: 260px;
     overflow-y: scroll;
 }
 
 #list{
     height: 550px;
     overflow-y: scroll;
+}
+
+#found-number{
+
+}
+
+#found-number-label{
+    
 }
