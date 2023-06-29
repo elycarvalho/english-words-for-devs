@@ -8,7 +8,7 @@ const words = [
     {word:"alter",translation:"alterar, mudar"},
     {word:"any",translation:"qualquer"},
     {
-      word:"api",
+      word:"a.p.i",
       translation:"É a abreviação de 'application programming interface'(Interface de programação de aplicativos). é um software intermediário que permite que dois aplicativos conversem entre si."},
     {word:"append",translation:"acrescentar, anexar, incluir"},
     {word:"apply",translation:"aplicar, solicitar, requerer"},
@@ -180,7 +180,14 @@ let typedWord = document.querySelector('#typed-word')
 function showList(){
     for(let i = 0; i < words.length; i++){
         list.innerHTML += `
-            <li><h5>${words[i].word}:</h5> ${words[i].translation}</li>
+            
+            <li>
+                <h5>
+                    <button class="btn text-info" onclick="speakWord('${words[i].word}')">
+                        <i class="fas fa-volume-up"></i>
+                    </button> ${words[i].word} :
+                </h5> ${words[i].translation}
+            </li>
             <hr>
             `
     }
@@ -208,7 +215,11 @@ function searchWord(){
         if(typedWordLower === wordSlice){
             foundWords++
             foundWord.innerHTML += `
-                <h5 class='ml-1'>${words[i].word} :</h5> <p class='ml-1'>${words[i].translation}</p>
+                <h5 class='ml-1'>
+                    <button class="btn" onclick="speakWord('${words[i].word}')">
+                        <i class="fas fa-volume-up"></i>
+                    </button> ${words[i].word} :
+                </h5> <p class='ml-1'>${words[i].translation}</p>
                 <hr>
             `
         }
@@ -217,4 +228,14 @@ function searchWord(){
     foundNumber.innerHTML = foundWords  
     console.log('encontradas:'+ foundWords)
     
+}
+
+function speakWord(wordToConvert){
+    console.log(wordToConvert)
+    let wordToSay = new SpeechSynthesisUtterance()
+    wordToSay.text = wordToConvert
+    wordToSay.lang = 'en'
+    wordToSay.rate = 0.8
+    wordToSay.volume = 1
+    window.speechSynthesis.speak(wordToSay)
 }
