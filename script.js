@@ -1,12 +1,9 @@
-const list = document.querySelector('#list')
-const btnSearch = document.querySelector('#btn-search')
-const foundNumber = document.querySelector('#found-number')
-
 const words = [
     {word:"add",translation:"adicionar, acrescentar, incluir"},
     {word:"address",translation:"endereço"},
     {word:"allocate",translation:"alocar, distribuir, repartir, localizar"},
     {word:"alter",translation:"alterar, mudar"},
+    {word:"AJAX",translation:"(Asynchronous JavaScript and XML) Javascript e XML asíncrono. É um método para criar páginas da web mais rápidas e dinâmicas."},
     {word:"any",translation:"qualquer"},
     {
       word:"a.p.i",
@@ -60,6 +57,7 @@ const words = [
     {word:"developement",translation:"desenvolvimento. Usado frequentemente para se referir a desenvolvimento de softwares"},
     {word:"directory",translation:"diretório, pasta de arquivos"},
     {word:"display",translation:"mostrar, exibir, mostrador"},
+    {word:"down",translation:"para baixo, descer, abaixar"},
     {word:"drop",translation:"derrubar, soltar, largar, cair, gota, gotejar"},
     {word:"each",translation:"cada"},
     {word:"else",translation:"senão, outro, ainda mais, ou, além disso, em vez de"},
@@ -69,6 +67,7 @@ const words = [
     {word:"evaluate",translation:"avaliar"},
     {word:"even",translation:"mesmo, ainda, até, par"},
     {word:"evenly",translation:"uniformente"},
+    {word:"extend",translation:"estender, ampliar"},
     {word:"fetch",translation:"buscar, trazer"},
     {word:"field",translation:"campo"},
     {word:"fill",translation:"preencher, ocupar, completar, encher"},
@@ -95,9 +94,12 @@ const words = [
     {word:"include",translation: "incluir"},
     {word:"increment",translation: "incremento, aumento, incrementar"},
     {word:"inherit",translation: "herdar, receber como herança"},
+    {word:"inheritance",translation:"herença. Em POO(programação orientada a objetos) é quando uma classe deriva de outra."},
     {word:"inner",translation: "interior, parte interna"},
     {word:"insert",translation: "inserir"},
     {word:"integer",translation: "inteiro"},
+    {word:"into",translation:"para dentro de, em, dentro"},
+    {word:"iterable",translation:"iterável. É um valor que pode ser passado em loop como foreach()."},
     {word:"iteration",translation:"repetição"},
     {word:"JDK",translation:"Java developement kit (kit de desenvolvimento da lingaugem java)"},
     {word:"JVM",translation:"Java virtual machine (máquina virtual java) Usada para executar códigos compilados na linguagem java."},
@@ -107,11 +109,14 @@ const words = [
     {word:"keyword",translation: "palavra chave"},
     {word:"leak",translation:"vazar, vazamento"},
     {word:"left",translation:"esquerda, deixado"},
+    {word:"level",translation:"nível"},
     {word:"length",translation:"comprimento, extensão, duração"},
     {word:"library", translation:"biblioteca. Na programação é um coleção de códigos pré escrito que programadores podem usar para optimizar tarefas específicas."},
     {word:"listen",translation:"escutar"},
     {word:"load",translation:"carregamento, carga, carregar"},
     {word:"loop",translation:"processo onde o fim é conectado com o inicio é executado infinitamente até que haja algum comando para interromper o processo."},
+    {word:"low",translation:"baixo, inferior"},
+    {word:"lower",translation:"mais baixo, abaixo, diminuir"},
     {word:"main",translation:"principal, central"},
     {word:"manage",translation:"gerenciar"},
     {word:"management",translation:"gerenciamento"},
@@ -120,6 +125,7 @@ const words = [
     {word:"math",translation:"(Abreviação de Mathematics - matemática) Função usada em programação para lidar com números inteiros e de ponto flutuante."},
     {word:"merge",translation:"fundir, misturar"},
     {word:"new",translation:"novo"},
+    {word:"next",translation:"próximo, posterior, seguinte"},
     {word:"null",translation:"nulo, sem efeito. Na programação pode indicar que um valor é zero ou que não tem nenhum valor."},
     {word:"number",translation:"número, enumerar"},
     {word:"odd",translation:"impar, chance, esquisito. Exemplos: What are the odds? (quais são as chances), 'odds or evens?'(impar ou par?)"},
@@ -133,16 +139,19 @@ const words = [
     {word:"package",translation:"pacote"},
     {word:"parent", translation:"o pai ou a mãe"},
     {word:"parse",translation:"analisar"},
+    {word:"password",translation:"senha"},
     {word:"path",translation:"caminho, trajeto"},
     {word:"power",translation:"força, energia, poder, potência (ex.: potência de um número"},
     {word:"print",translation:"imprimir ou mostrar na tela"},
     {word:"private",translation:"privado"},
+    {word:"previous",translation:"anterior, prévio, precedente"},
     {word:"procedure",translation:"procedimento"},
     {
       word:"prototype",
       translation:"Protótipo, modelo. É um estilo de programação orientada a objetos no qual as classes não são explicitamente definidas, mas sim derivadas adicionando propriedades e métodos a uma instância de outra classe ou, com menos frequência, adicionando-os a um objeto vazio."
     },
     {word:"push",translation:"empurrar, enviar"},
+    {word:"put",translation:"pôr, colocar"},
     {word:"query",translation:"consultar, indagar"},
     {word:"queue",translation:"fila, enfileirado"},
     {word:"quote",translation:"aspas, citar"},
@@ -161,6 +170,7 @@ const words = [
     {word:"screen",translation:"tela, monitor"},
     {word:"select",translation:"selecionar"},
     {word:"selector",translation:"seletor, selecionador, aquele que seleciona"},
+    {word:"send",translation:"enviar, mandar"},
     {word:"server",translation:"servidor"},
     {word:"servlet",translation:"um pequeno programa residente no servidor que normalmente é executado automaticamente em resposta à entrada do usuário."},
     {word:"set",translation:"definir"},
@@ -202,12 +212,17 @@ const words = [
     {word:"void",translation:"vazio, oco, desocupado"},
     {word:"volatile",translation:"volátil, que se desfaz com facilidade"},
     {word:"weight",translation:"peso"},
+    {word:"where",translation:"onde"},
     {word:"while",translation:"enquanto"},
     {word:"width",translation:"largura"},
     {word:"workflow",translation:"fluxo de trabalho"},
     {word:"write",translation:"escrever"},
     {word:"yield",translation:"colheita, rendimento, produto"}
 ]
+
+const list = document.querySelector('#list')
+const btnSearch = document.querySelector('#btn-search')
+const foundNumber = document.querySelector('#found-number')
 console.log('palavras:' + words.length)
 
 let typedWord = document.querySelector('#typed-word')
