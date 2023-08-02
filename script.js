@@ -1,9 +1,11 @@
 const words = [
     {word:"add",translation:"adicionar, acrescentar, incluir"},
     {word:"address",translation:"endereço"},
+    {word:"A.I.",translation:"Artificial Intelligence (I.A. Inteligência Artificial)"},
+    {word:"AJAX",translation:"(Asynchronous JavaScript and XML) Javascript e XML asíncrono. É um método para criar páginas da web mais rápidas e dinâmicas."},
+    {word:"all",translation:"todos, tudo"},
     {word:"allocate",translation:"alocar, distribuir, repartir, localizar"},
     {word:"alter",translation:"alterar, mudar"},
-    {word:"AJAX",translation:"(Asynchronous JavaScript and XML) Javascript e XML asíncrono. É um método para criar páginas da web mais rápidas e dinâmicas."},
     {word:"any",translation:"qualquer"},
     {
       word:"a.p.i",
@@ -59,6 +61,7 @@ const words = [
     {word:"display",translation:"mostrar, exibir, mostrador"},
     {word:"down",translation:"para baixo, descer, abaixar"},
     {word:"drop",translation:"derrubar, soltar, largar, cair, gota, gotejar"},
+    {word:"dump",translation:"esvaziar, jogar fora, descarregar, despejar"},
     {word:"each",translation:"cada"},
     {word:"else",translation:"senão, outro, ainda mais, ou, além disso, em vez de"},
     {word:"embed",translation:"embutir"},
